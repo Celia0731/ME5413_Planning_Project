@@ -44,6 +44,7 @@ class PathTrackerNode
 {
  public:
   PathTrackerNode();
+   geometry_msgs::Twist computeControlOutputs(const nav_msgs::Odometry& odom_robot, const nav_msgs::Path& local_path);
   virtual ~PathTrackerNode() {};
 
  private:
@@ -53,7 +54,9 @@ class PathTrackerNode
 
   tf2::Transform convertPoseToTransform(const geometry_msgs::Pose& pose);
   double computeStanelyControl(const double heading_error, const double cross_track_error, const double velocity);
-  geometry_msgs::Twist computeControlOutputs(const nav_msgs::Odometry& odom_robot, const geometry_msgs::Pose& pose_goal);
+  double normalizeAngle(double angle);
+  geometry_msgs::Twist computeControlOutputs(const nav_msgs::Odometry& odom_robot, const nav_msgs::Path::ConstPtr& path);
+  geometry_msgs::Point findGoalPoint(const tf2::Vector3& point_robot, const nav_msgs::Path::ConstPtr& path, double forward_distance);
 
   // ROS declaration
   ros::NodeHandle nh_;

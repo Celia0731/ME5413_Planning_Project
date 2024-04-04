@@ -1,5 +1,8 @@
 # ME5413_Planning_Project
 
+# This is a course assignment from National University of Singapore. We have applied the Pure Persuit Algorithm to improve the original robot and evaluated the optimization results.
+# The following are the specific requirements for the assignment:
+
 NUS ME5413 Autonomous Mobile Robotics Planning Project
 
 > Authors: [Ziggy](https://github.com/ziggyhuang) and [Shuo](https://github.com/SS47816)
